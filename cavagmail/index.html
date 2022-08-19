@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CAVA google email</title>
+  </head>
+  <body>
+  <form>
+    <label for="sid">Student ID:</label>
+    <input type="text" name="sid"/><br>
+    <label for="fn">First name:</label>
+    <input type="text" name="fn"/>
+    <label for="ln">Last name:</label>
+    <input type="text" name="ln"/><br>
+    <label for="bd">Date of birth:</label>
+    <input type="date" name="bd"/><br>
+    <input type="submit"/><br>
+  </form>
+  <p id="email"></p>
+  <p id="password"></p>
+  <script>
+  let vals = location.search.substr(1).split('&');
+  let settings = {};
+  if (vals[0] != '') {
+    for (let i = 0; i < vals.length; i++) {
+      window[vals[i].split('=')[0]] = vals[i].split('=')[1];
+    }
+    
+    document.getElementById('email').innerText = "Email: " + sid + "@californiava.org";
+    document.getElementById('password').innerText = "Password: " + fn[0].toUpperCase() + ln[0].toUpperCase() + parseInt(bd.substring(5, 7)) + bd.substring(8) + bd.substring(0, 4);
+  }
+  </script>
+  </body>
+</html>
